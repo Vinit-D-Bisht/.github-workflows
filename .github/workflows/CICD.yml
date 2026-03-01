@@ -1,8 +1,17 @@
 name: CI/CD
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "This is the environment where this runs"
+        default: dev
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - production
 
 jobs:
   greet:
@@ -37,4 +46,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy stage
-        run: echo "Deploying application 🚀"
+        run: |
+          echo "Deploying to environment: ${{ inputs.environment }} 🚀"
