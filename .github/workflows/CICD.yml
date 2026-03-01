@@ -1,0 +1,37 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello User
+        run: echo "Hello from VINIT 👋"
+
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sample code step
+        run: echo "Running code job 🚀"
+        
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sample build step
+        run: echo "building code job from docker"
+
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sample Test step
+        run: echo "Testing job"
+  
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying step
+        run: echo "Deploying final job"
+  
