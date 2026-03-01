@@ -7,25 +7,72 @@
 
   <style>
     :root {
-      --bg: #020617;
-      --card: #020617;
+      --bg1: #0f172a;
+      --bg2: #020617;
+      --glass: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.18);
       --primary: #38bdf8;
       --secondary: #22c55e;
       --text: #e5e7eb;
       --muted: #94a3b8;
+      --blur: blur(16px);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top, #020617, #0f172a);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 20%, #1e293b, transparent 40%),
+        radial-gradient(circle at 80% 10%, #020617, transparent 40%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
       color: var(--text);
-      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== GLOBAL ===== */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 24px;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      position: absolute;
+      left: 0;
+      bottom: -12px;
+      border-radius: 99px;
+    }
+
+    /* ===== GLASS CARD ===== */
+    .glass {
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+      transition: all 0.4s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 90px rgba(56,189,248,0.25);
     }
 
     /* ===== HERO ===== */
@@ -34,50 +81,59 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
+      padding: 40px 24px;
     }
 
     .hero {
+      text-align: center;
       max-width: 900px;
     }
 
     .hero h1 {
-      font-size: 3.6rem;
-      font-weight: 700;
-      color: var(--text);
+      font-size: clamp(3rem, 6vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
     .hero h1 span {
-      color: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero h2 {
-      margin-top: 15px;
-      font-size: 1.4rem;
-      font-weight: 400;
+    .hero p {
+      margin-top: 18px;
+      font-size: 1.25rem;
       color: var(--muted);
     }
 
     .badges {
-      margin: 25px 0;
+      margin: 35px 0;
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
+      justify-content: center;
+      gap: 14px;
     }
 
     .badge {
-      padding: 8px 14px;
+      padding: 10px 18px;
       border-radius: 999px;
+      font-size: 0.95rem;
       background: rgba(56,189,248,0.12);
-      border: 1px solid rgba(56,189,248,0.3);
-      font-size: 0.9rem;
+      border: 1px solid rgba(56,189,248,0.35);
       color: var(--primary);
+      transition: 0.3s ease;
+    }
+
+    .badge:hover {
+      background: rgba(34,197,94,0.18);
+      border-color: rgba(34,197,94,0.5);
+      color: var(--secondary);
+      transform: scale(1.06);
     }
 
     .cta {
-      margin-top: 35px;
+      margin-top: 40px;
       display: flex;
       justify-content: center;
       gap: 20px;
@@ -85,65 +141,88 @@
     }
 
     .btn {
-      padding: 14px 28px;
-      border-radius: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
       font-size: 1rem;
       text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+      font-weight: 600;
+      transition: all 0.35s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #020617;
-      box-shadow: 0 0 25px rgba(56,189,248,0.4);
+      box-shadow: 0 0 30px rgba(56,189,248,0.5);
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 35px rgba(56,189,248,0.7);
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 0 60px rgba(56,189,248,0.9);
     }
 
     .btn-outline {
-      border: 1px solid rgba(148,163,184,0.4);
+      border: 1px solid var(--border);
       color: var(--text);
+      backdrop-filter: var(--blur);
     }
 
     .btn-outline:hover {
-      background: rgba(148,163,184,0.1);
+      background: rgba(255,255,255,0.1);
     }
 
-    /* ===== SECTIONS ===== */
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
+    /* ===== ABOUT ===== */
+    .about {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
     }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      border-left: 5px solid var(--primary);
-      padding-left: 15px;
+    .about p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.9;
     }
 
-    .card {
-      background: var(--card);
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid rgba(56,189,248,0.2);
-      box-shadow: 0 0 25px rgba(56,189,248,0.15);
+    /* ===== SKILLS ===== */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 30px;
     }
 
+    .skill h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .project h3 {
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 24px;
       color: var(--muted);
-      border-top: 1px solid rgba(148,163,184,0.2);
+      border-top: 1px solid var(--border);
     }
 
     footer span {
       color: var(--primary);
+    }
+
+    @media (max-width: 900px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -154,19 +233,18 @@
 <header>
   <div class="hero">
     <h1>Vinit <span>Bisht</span></h1>
-    <h2>DevOps Learner • BSc IT (2nd Year) • Age 20</h2>
+    <p>DevOps Learner • BSc IT (2nd Year) • Age 20</p>
 
     <div class="badges">
       <div class="badge">Linux</div>
       <div class="badge">Docker</div>
       <div class="badge">Git & GitHub</div>
       <div class="badge">Networking</div>
-      <div class="badge">DevOps (Learning)</div>
+      <div class="badge">CI/CD (Learning)</div>
     </div>
 
     <div class="cta">
-      <!-- Put your resume PDF in the same folder and name it resume.pdf -->
-      <a href="resume.pdf" download class="btn btn-primary">⬇ Download Resume</a>
+      <a href="resume.pdf" download class="btn btn-primary">Download Resume</a>
       <a href="#projects" class="btn btn-outline">View Projects</a>
     </div>
   </div>
@@ -174,19 +252,78 @@
 
 <!-- ABOUT -->
 <section>
-  <h2 class="section-title">About Me</h2>
-  <div class="card">
-    <p>
-      I’m <strong>Vinit Bisht</strong>, a passionate DevOps learner currently pursuing
-      <strong>BSc IT (Second Year)</strong>. I enjoy working with Linux systems,
-      containers, networking, and automation, and I’m focused on building
-      scalable and reliable infrastructure.
-    </p>
+  <h2>About Me</h2>
+  <div class="about">
+    <div class="glass" style="padding:32px">
+      <p>
+        I’m <strong>Vinit Bisht</strong>, a passionate DevOps learner currently pursuing
+        <strong>BSc IT (Second Year)</strong>. I enjoy working with Linux systems,
+        containerization, networking, and automation.
+        <br><br>
+        My goal is to become a DevOps Engineer who builds scalable, reliable,
+        and secure infrastructure using modern DevOps practices.
+      </p>
+    </div>
+
+    <div class="glass" style="padding:32px">
+      <p>
+        I believe in <strong>learning by building</strong> — breaking systems,
+        fixing them, and understanding how things work behind the scenes.
+        Currently expanding my skills into CI/CD pipelines, cloud platforms,
+        and orchestration tools.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="glass skill" style="padding:28px">
+      <h3>Linux</h3>
+      <p>Processes, services, logs, permissions, troubleshooting</p>
+    </div>
+    <div class="glass skill" style="padding:28px">
+      <h3>Docker</h3>
+      <p>Images, containers, Dockerfiles, container workflows</p>
+    </div>
+    <div class="glass skill" style="padding:28px">
+      <h3>Git & GitHub</h3>
+      <p>Version control, repositories, collaboration</p>
+    </div>
+    <div class="glass skill" style="padding:28px">
+      <h3>Networking</h3>
+      <p>TCP/IP, DNS, ports, HTTP basics</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="glass project" style="padding:30px">
+      <h3>Dockerized Web App</h3>
+      <p>Built and containerized a web application using Docker and Dockerfiles.</p>
+    </div>
+    <div class="glass project" style="padding:30px">
+      <h3>Linux System Labs</h3>
+      <p>Hands-on Linux administration: users, permissions, services, logs.</p>
+    </div>
+    <div class="glass project" style="padding:30px">
+      <h3>GitHub DevOps Practice</h3>
+      <p>Version control workflows, branching strategies, and repo management.</p>
+    </div>
+    <div class="glass project" style="padding:30px">
+      <h3>Networking Labs</h3>
+      <p>DNS, ports, TCP/IP fundamentals, and troubleshooting exercises.</p>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p>Built with ❤️ by <span>Vinit Bisht</span></p>
+  <p>Designed & Built by <span>Vinit Bisht</span></p>
   <p>Aspiring DevOps Engineer 🚀</p>
 </footer>
 
