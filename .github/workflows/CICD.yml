@@ -3,36 +3,39 @@ name: CI/CD
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello User
+      - name: Greet
         run: echo "Hello from VINIT 👋"
 
   code:
+    needs: greet
     runs-on: ubuntu-latest
     steps:
-      - name: Sample code step
-        run: echo "Running code job 🚀"
-        
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Sample build step
-        run: echo "building code job from docker"
+      - name: Code stage
+        run: echo "Running code stage"
 
-  Test:
+  build:
+    needs: code
     runs-on: ubuntu-latest
     steps:
-      - name: Sample Test step
-        run: echo "Testing job"
-  
-  Deploy:
+      - name: Build stage
+        run: echo "Building application"
+
+  test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploying step
-        run: echo "Deploying final job"
-  
+      - name: Test stage
+        run: echo "Running tests"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy stage
+        run: echo "Deploying application 🚀"
