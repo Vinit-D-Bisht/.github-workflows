@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vinit Bisht | DevOps Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --primary: #38bdf8;
+      --secondary: #22c55e;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #020617, #0f172a);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ===== HERO ===== */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .badges {
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.12);
+      border: 1px solid rgba(56,189,248,0.3);
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+
+    .cta {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #020617;
+      box-shadow: 0 0 25px rgba(56,189,248,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(56,189,248,0.7);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: rgba(148,163,184,0.1);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      border-left: 5px solid var(--primary);
+      padding-left: 15px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid rgba(56,189,248,0.2);
+      box-shadow: 0 0 25px rgba(56,189,248,0.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      border-top: 1px solid rgba(148,163,184,0.2);
+    }
+
+    footer span {
+      color: var(--primary);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header>
+  <div class="hero">
+    <h1>Vinit <span>Bisht</span></h1>
+    <h2>DevOps Learner • BSc IT (2nd Year) • Age 20</h2>
+
+    <div class="badges">
+      <div class="badge">Linux</div>
+      <div class="badge">Docker</div>
+      <div class="badge">Git & GitHub</div>
+      <div class="badge">Networking</div>
+      <div class="badge">DevOps (Learning)</div>
+    </div>
+
+    <div class="cta">
+      <!-- Put your resume PDF in the same folder and name it resume.pdf -->
+      <a href="resume.pdf" download class="btn btn-primary">⬇ Download Resume</a>
+      <a href="#projects" class="btn btn-outline">View Projects</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section>
+  <h2 class="section-title">About Me</h2>
+  <div class="card">
+    <p>
+      I’m <strong>Vinit Bisht</strong>, a passionate DevOps learner currently pursuing
+      <strong>BSc IT (Second Year)</strong>. I enjoy working with Linux systems,
+      containers, networking, and automation, and I’m focused on building
+      scalable and reliable infrastructure.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>Built with ❤️ by <span>Vinit Bisht</span></p>
+  <p>Aspiring DevOps Engineer 🚀</p>
+</footer>
+
+</body>
+</html>
