@@ -1,0 +1,12 @@
+name: Vinit
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: HelloUser
+        run: echo "Hello from Vinit 👋"
