@@ -71,7 +71,6 @@
       box-shadow: 0 40px 90px rgba(56,189,248,0.25);
     }
 
-    /* HERO */
     header {
       min-height: 100vh;
       display: flex;
@@ -140,7 +139,6 @@
       color: var(--text);
     }
 
-    /* ABOUT */
     .about {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -152,7 +150,6 @@
       color: var(--muted);
     }
 
-    /* SKILLS */
     .skills, .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -189,7 +186,7 @@
 <header>
   <div class="hero">
     <h1>Vinit <span>Bisht</span></h1>
-    <p>DevOps Learner • BSc IT (2nd Year)</p>
+    <p>Aspiring DevOps engineer with hands-on experience in Kubernetes, Docker, and infrastructure automation using CI/CD</p>
 
     <div class="badges">
       <div class="badge">Linux</div>
@@ -201,7 +198,8 @@
     </div>
 
     <div class="cta">
-      <a href="resume.pdf" class="btn btn-primary">Download Resume</a>
+      <a href="Resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+      <a href="Resume.pdf" download class="btn btn-outline">Download Resume</a>
       <a href="#projects" class="btn btn-outline">View Projects</a>
     </div>
   </div>
@@ -213,15 +211,14 @@
     <div class="glass" style="padding:25px">
       <p>
         I’m <strong>Vinit Bisht</strong>, a DevOps-focused student pursuing BSc IT.
-        I work with modern tools like Docker, Kubernetes, and CI/CD pipelines to
-        build and manage scalable systems.
+        I build and manage scalable systems using Docker, Kubernetes, and CI/CD pipelines.
       </p>
     </div>
 
     <div class="glass" style="padding:25px">
       <p>
-        I believe in learning by building real systems — deploying apps,
-        automating workflows, and improving reliability through hands-on practice.
+        I learn by building real systems — deploying applications, automating workflows,
+        and improving reliability through hands-on projects.
       </p>
     </div>
   </div>
@@ -230,84 +227,78 @@
 <section>
   <h2>Skills</h2>
   <div class="skills">
-
     <div class="glass skill" style="padding:20px">
       <h3>Linux & Shell</h3>
-      <p>System management, scripting, monitoring automation</p>
+      <p>System management, scripting, monitoring</p>
     </div>
-
     <div class="glass skill" style="padding:20px">
       <h3>Docker</h3>
-      <p>Containerization, Dockerfiles, image workflows</p>
+      <p>Containerization, Dockerfiles</p>
     </div>
-
     <div class="glass skill" style="padding:20px">
       <h3>Kubernetes</h3>
-      <p>Deployments, services, scaling, cluster operations</p>
+      <p>Deployments, scaling, cluster ops</p>
     </div>
-
     <div class="glass skill" style="padding:20px">
       <h3>CI/CD</h3>
-      <p>GitHub Actions pipelines, automation</p>
+      <p>GitHub Actions automation</p>
     </div>
-
     <div class="glass skill" style="padding:20px">
       <h3>Terraform</h3>
-      <p>Infrastructure as Code, provisioning resources</p>
+      <p>Infrastructure as Code</p>
     </div>
-
     <div class="glass skill" style="padding:20px">
       <h3>Ansible</h3>
-      <p>Automation, configuration management</p>
+      <p>Automation & config management</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="glass project" style="padding:20px">
+      <h3>Multi-Environment AWS Infrastructure Automation</h3>
+      <p>
+        Provisioned Dev, Staging, and Production infrastructure using Terraform and automated setup with Ansible.
+        <br>
+        Reduced setup time by ~85% and removed manual configuration.
+      </p>
+    </div>
+
+    <div class="glass project" style="padding:20px">
+      <h3>Kubernetes Deployment with Auto-Scaling</h3>
+      <p>
+        Deployed banking app on Kubernetes cluster with Horizontal Pod Autoscaling.
+        <br>
+        Enabled automatic scaling based on load.
+      </p>
+    </div>
+
+    <div class="glass project" style="padding:20px">
+      <h3>CI/CD Pipeline (Banking App)</h3>
+      <p>
+        Built CI/CD pipeline using GitHub Actions for automated build and deployment.
+      </p>
+    </div>
+
+    <div class="glass project" style="padding:20px">
+      <h3>Dockerized Flask Application</h3>
+      <p>
+        Containerized Flask app using Docker for consistent deployment.
+      </p>
+    </div>
+
+    <div class="glass project" style="padding:20px">
+      <h3>System Monitoring Script</h3>
+      <p>
+        Created shell script to monitor CPU, memory, and processes.
+      </p>
     </div>
 
   </div>
 </section>
-
-<div class="projects">
-
-  <div class="glass project" style="padding:20px">
-    <h3>Multi-Environment AWS Infrastructure Automation (Terraform + Ansible)</h3>
-    <p>
-      Provisioned Dev, Staging, and Production infrastructure on AWS using Terraform (EC2, S3, DynamoDB) and automated configuration using Ansible.
-      <br>
-      Reduced infrastructure setup time by ~85% and enabled consistent deployments without manual setup.
-    </p>
-  </div>
-
-  <div class="glass project" style="padding:20px">
-    <h3>Kubernetes Deployment with Auto-Scaling</h3>
-    <p>
-      Deployed a containerized banking application on a Kubernetes cluster (1 master, 2 workers) with Horizontal Pod Autoscaling.
-      <br>
-      Enabled automatic scaling based on load, improving application availability during traffic spikes.
-    </p>
-  </div>
-
-  <div class="glass project" style="padding:20px">
-    <h3>CI/CD & DevSecOps Pipeline (Banking Application)</h3>
-    <p>
-      Implemented CI/CD pipeline using GitHub Actions for automated build and deployment of a banking application.
-      <br>
-      Integrated basic security practices to improve deployment reliability and consistency.
-    </p>
-  </div>
-
-  <div class="glass project" style="padding:20px">
-    <h3>Dockerized Flask Application</h3>
-    <p>
-      Built and containerized a Flask application using a custom Dockerfile for consistent and portable environments.
-    </p>
-  </div>
-
-  <div class="glass project" style="padding:20px">
-    <h3>Linux System Monitoring Script</h3>
-    <p>
-      Developed a shell script from scratch to monitor CPU, memory, and system processes for basic system health tracking.
-    </p>
-  </div>
-
-</div>
 
 <footer>
   <p>Built by Vinit Bisht 🚀</p>
