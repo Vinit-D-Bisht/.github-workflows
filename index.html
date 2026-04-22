@@ -32,10 +32,8 @@
         radial-gradient(circle at 80% 10%, #020617, transparent 40%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
       color: var(--text);
-      overflow-x: hidden;
     }
 
-    /* ===== GLOBAL ===== */
     section {
       max-width: 1200px;
       margin: auto;
@@ -59,40 +57,33 @@
       border-radius: 99px;
     }
 
-    /* ===== GLASS CARD ===== */
     .glass {
       background: var(--glass);
       backdrop-filter: var(--blur);
-      -webkit-backdrop-filter: var(--blur);
       border: 1px solid var(--border);
       border-radius: 22px;
       box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-      transition: all 0.4s ease;
+      transition: 0.3s;
     }
 
     .glass:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 40px 90px rgba(56,189,248,0.25);
     }
 
-    /* ===== HERO ===== */
+    /* HERO */
     header {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 24px;
-    }
-
-    .hero {
       text-align: center;
-      max-width: 900px;
+      padding: 40px 20px;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 6vw, 4.6rem);
+      font-size: clamp(3rem, 6vw, 4.5rem);
       font-weight: 800;
-      letter-spacing: -1px;
     }
 
     .hero h1 span {
@@ -102,92 +93,70 @@
     }
 
     .hero p {
-      margin-top: 18px;
-      font-size: 1.25rem;
+      margin-top: 15px;
       color: var(--muted);
+      font-size: 1.2rem;
     }
 
     .badges {
-      margin: 35px 0;
+      margin: 30px 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .badge {
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 999px;
-      font-size: 0.95rem;
       background: rgba(56,189,248,0.12);
-      border: 1px solid rgba(56,189,248,0.35);
+      border: 1px solid rgba(56,189,248,0.3);
       color: var(--primary);
-      transition: 0.3s ease;
-    }
-
-    .badge:hover {
-      background: rgba(34,197,94,0.18);
-      border-color: rgba(34,197,94,0.5);
-      color: var(--secondary);
-      transform: scale(1.06);
+      font-size: 0.9rem;
     }
 
     .cta {
-      margin-top: 40px;
+      margin-top: 30px;
       display: flex;
+      gap: 15px;
       justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 16px 32px;
-      border-radius: 14px;
-      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.35s ease;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #020617;
-      box-shadow: 0 0 30px rgba(56,189,248,0.5);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 0 60px rgba(56,189,248,0.9);
+      color: #000;
     }
 
     .btn-outline {
       border: 1px solid var(--border);
       color: var(--text);
-      backdrop-filter: var(--blur);
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-    }
-
-    /* ===== ABOUT ===== */
+    /* ABOUT */
     .about {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
     }
 
     .about p {
-      font-size: 1.1rem;
+      line-height: 1.8;
       color: var(--muted);
-      line-height: 1.9;
     }
 
-    /* ===== SKILLS ===== */
-    .skills {
+    /* SKILLS */
+    .skills, .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
     }
 
     .skill h3 {
@@ -195,31 +164,19 @@
       margin-bottom: 10px;
     }
 
-    /* ===== PROJECTS ===== */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-
     .project h3 {
       color: var(--secondary);
       margin-bottom: 10px;
     }
 
-    /* ===== FOOTER ===== */
     footer {
       text-align: center;
-      padding: 60px 24px;
-      color: var(--muted);
+      padding: 50px 20px;
       border-top: 1px solid var(--border);
+      color: var(--muted);
     }
 
-    footer span {
-      color: var(--primary);
-    }
-
-    @media (max-width: 900px) {
+    @media(max-width: 800px){
       .about {
         grid-template-columns: 1fr;
       }
@@ -229,102 +186,118 @@
 
 <body>
 
-<!-- HERO -->
 <header>
   <div class="hero">
     <h1>Vinit <span>Bisht</span></h1>
-    <p>DevOps Learner • BSc IT (2nd Year) • Age 20</p>
+    <p>DevOps Learner • BSc IT (2nd Year)</p>
 
     <div class="badges">
       <div class="badge">Linux</div>
       <div class="badge">Docker</div>
-      <div class="badge">Git & GitHub</div>
-      <div class="badge">Networking</div>
-      <div class="badge">CI/CD (Learning)</div>
+      <div class="badge">Kubernetes</div>
+      <div class="badge">CI/CD</div>
+      <div class="badge">Terraform</div>
+      <div class="badge">Ansible</div>
     </div>
 
     <div class="cta">
-      <a href="resume.pdf" download class="btn btn-primary">Download Resume</a>
+      <a href="resume.pdf" class="btn btn-primary">Download Resume</a>
       <a href="#projects" class="btn btn-outline">View Projects</a>
     </div>
   </div>
 </header>
 
-<!-- ABOUT -->
 <section>
   <h2>About Me</h2>
   <div class="about">
-    <div class="glass" style="padding:32px">
+    <div class="glass" style="padding:25px">
       <p>
-        I’m <strong>Vinit Bisht</strong>, a passionate DevOps learner currently pursuing
-        <strong>BSc IT (Second Year)</strong>. I enjoy working with Linux systems,
-        containerization, networking, and automation.
-        <br><br>
-        My goal is to become a DevOps Engineer who builds scalable, reliable,
-        and secure infrastructure using modern DevOps practices.
+        I’m <strong>Vinit Bisht</strong>, a DevOps-focused student pursuing BSc IT.
+        I work with modern tools like Docker, Kubernetes, and CI/CD pipelines to
+        build and manage scalable systems.
       </p>
     </div>
 
-    <div class="glass" style="padding:32px">
+    <div class="glass" style="padding:25px">
       <p>
-        I believe in <strong>learning by building</strong> — breaking systems,
-        fixing them, and understanding how things work behind the scenes.
-        Currently expanding my skills into CI/CD pipelines, cloud platforms,
-        and orchestration tools.
+        I believe in learning by building real systems — deploying apps,
+        automating workflows, and improving reliability through hands-on practice.
       </p>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section>
   <h2>Skills</h2>
   <div class="skills">
-    <div class="glass skill" style="padding:28px">
-      <h3>Linux</h3>
-      <p>Processes, services, logs, permissions, troubleshooting</p>
+
+    <div class="glass skill" style="padding:20px">
+      <h3>Linux & Shell</h3>
+      <p>System management, scripting, monitoring automation</p>
     </div>
-    <div class="glass skill" style="padding:28px">
+
+    <div class="glass skill" style="padding:20px">
       <h3>Docker</h3>
-      <p>Images, containers, Dockerfiles, container workflows</p>
+      <p>Containerization, Dockerfiles, image workflows</p>
     </div>
-    <div class="glass skill" style="padding:28px">
-      <h3>Git & GitHub</h3>
-      <p>Version control, repositories, collaboration</p>
+
+    <div class="glass skill" style="padding:20px">
+      <h3>Kubernetes</h3>
+      <p>Deployments, services, scaling, cluster operations</p>
     </div>
-    <div class="glass skill" style="padding:28px">
-      <h3>Networking</h3>
-      <p>TCP/IP, DNS, ports, HTTP basics</p>
+
+    <div class="glass skill" style="padding:20px">
+      <h3>CI/CD</h3>
+      <p>GitHub Actions pipelines, automation</p>
     </div>
+
+    <div class="glass skill" style="padding:20px">
+      <h3>Terraform</h3>
+      <p>Infrastructure as Code, provisioning resources</p>
+    </div>
+
+    <div class="glass skill" style="padding:20px">
+      <h3>Ansible</h3>
+      <p>Automation, configuration management</p>
+    </div>
+
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
-    <div class="glass project" style="padding:30px">
-      <h3>Dockerized Web App</h3>
-      <p>Built and containerized a web application using Docker and Dockerfiles.</p>
+
+    <div class="glass project" style="padding:20px">
+      <h3>System Monitoring Script</h3>
+      <p>Shell script built from scratch to monitor CPU, memory and system health.</p>
     </div>
-    <div class="glass project" style="padding:30px">
-      <h3>Linux System Labs</h3>
-      <p>Hands-on Linux administration: users, permissions, services, logs.</p>
+
+    <div class="glass project" style="padding:20px">
+      <h3>Dockerized Flask App</h3>
+      <p>Built and deployed a Flask app using Docker with custom Dockerfile.</p>
     </div>
-    <div class="glass project" style="padding:30px">
-      <h3>GitHub DevOps Practice</h3>
-      <p>Version control workflows, branching strategies, and repo management.</p>
+
+    <div class="glass project" style="padding:20px">
+      <h3>Portfolio CI/CD</h3>
+      <p>Automated deployment of portfolio using GitHub Actions pipeline.</p>
     </div>
-    <div class="glass project" style="padding:30px">
-      <h3>Networking Labs</h3>
-      <p>DNS, ports, TCP/IP fundamentals, and troubleshooting exercises.</p>
+
+    <div class="glass project" style="padding:20px">
+      <h3>DevSecOps Bank App</h3>
+      <p>Implemented CI/CD pipeline with basic security practices on banking app.</p>
     </div>
+
+    <div class="glass project" style="padding:20px">
+      <h3>Kubernetes Deployment</h3>
+      <p>Deployed and managed banking app using Kubernetes deployments and services.</p>
+    </div>
+
   </div>
 </section>
 
 <footer>
-  <p>Designed & Built by <span>Vinit Bisht</span></p>
-  <p>Aspiring DevOps Engineer 🚀</p>
+  <p>Built by Vinit Bisht 🚀</p>
 </footer>
 
 </body>
